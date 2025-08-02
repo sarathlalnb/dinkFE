@@ -1,0 +1,16 @@
+:root {
+  --primary: #5C3A21;
+  --background: #f9f9f9;
+  --text: #222;
+  --muted: #aaa;
+  --white: #ffffff;
+  --grey: #eeeeee;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
