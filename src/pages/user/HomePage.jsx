@@ -5,7 +5,9 @@ const HomePage = () => {
     <div className="home">
       <section className="hero">
         <div className="hero-text">
-          <h1>Welcome to ShopEase</h1>
+          <h1>
+            Welcome to DinkMart <i class="fa-solid fa-basket-shopping"></i>{" "}
+          </h1>
           <p>Your one-stop shop for the latest styles & essentials</p>
           <button className="shop-now-btn">Shop Now</button>
         </div>

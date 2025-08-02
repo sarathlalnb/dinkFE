@@ -1,17 +1,49 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
+import "./AdminLayout.css";
 
 const AdminLayout = () => {
+  const location = useLocation();
+
   return (
-    <div style={{ display: "flex" }}>
-      <aside
-        style={{ width: "240px", background: "var(--grey)", padding: "1rem" }}
-      >
-        <h2 style={{ color: "var(--primary)" }}>Admin Panel</h2>
-        {/* Add nav here */}
+    <div className="admin-layout">
+      <aside className="admin-sidebar">
+        <h2>⚙️ DinkPanel</h2>
+        <nav>
+          <Link
+            to="/admin"
+            className={location.pathname === "/admin" ? "active" : ""}
+          >
+            Dashboard
+          </Link>
+          <Link
+            to="/admin/products"
+            className={location.pathname.includes("products") ? "active" : ""}
+          >
+            Products
+          </Link>
+          <Link
+            to="/admin/orders"
+            className={location.pathname.includes("orders") ? "active" : ""}
+          >
+            Orders
+          </Link>
+          <Link
+            to="/admin/users"
+            className={location.pathname.includes("users") ? "active" : ""}
+          >
+            Users
+          </Link>
+        </nav>
       </aside>
-      <main style={{ flex: 1, padding: "2rem" }}>
-        <Outlet />
-      </main>
+
+      <div className="admin-main">
+        <header className="admin-topbar">
+          <h3>Welcome, Admin</h3>
+        </header>
+        <main className="admin-content">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 };

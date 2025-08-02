@@ -1,0 +1,52 @@
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.admin-dashboard h2 {
+    color: #00ffff;
+    font-size: 2rem;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #1a1e2e;
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 255, 255, 0.05);
+}
+
+.stat-card p {
+    margin: 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.stat-card h3 {
+    margin: 0.2rem 0 0;
+    color: #fff;
+}
+
+.icon-primary {
+    color: #00ffff;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.chart-card h4 {
+    color: #ccc;
+    margin-bottom: 1rem;
+}

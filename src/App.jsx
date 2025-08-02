@@ -12,6 +12,9 @@ import PaymentPage from "./pages/user/PaymentPage";
 import OrdersPage from "./pages/user/OrdersPage";
 import CartPage from "./pages/user/CartPage";
 import GroupPayment from "./pages/user/GroupPayment";
+import AdminProductsPage from "./pages/admin/AdminProductPage";
+import AdminOrdersPage from "./pages/admin/AdminOrdersPAge";
+import AdminUsersPage from "./pages/admin/AdminUsers";
 
 const App = () => {
   const { user } = useAuth();
@@ -42,6 +45,9 @@ const App = () => {
         </Route>
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<DashboardPage />} />
+          <Route path="/admin/products" element={<AdminProductsPage />} />
+          <Route path="/admin/orders" element={<AdminOrdersPage />} />
+          <Route path="/admin/users" element={<AdminUsersPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

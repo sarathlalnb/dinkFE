@@ -16,7 +16,7 @@ const UserLayout = () => {
       <header className="user-header">
         <div className="user-header-left">
           <Link to="/user" className="user-logo">
-            ShopEase
+            DinkMart <i class="fa-solid fa-basket-shopping"></i>
           </Link>
         </div>
         <nav className="user-nav">

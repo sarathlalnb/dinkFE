@@ -1,0 +1,59 @@
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.admin-dashboard h2 {
+    color: #00ffff;
+    font-size: 2rem;
+}
+.users-table {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--grey);
+}
+
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.badge.admin {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.badge.user {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-btn i {
+    margin-right: 5px;
+}
