@@ -4,9 +4,7 @@ import "./AdminProductsPage.css";
 import { useAuth } from "../../context/AuthContext";
 
 const AdminProductsPage = () => {
-
-    const {user} = useAuth()
-
+  const { user } = useAuth();
   const [products, setProducts] = useState([]);
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({
@@ -20,6 +18,9 @@ const AdminProductsPage = () => {
     image: "",
   });
   const [imageFile, setImageFile] = useState(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 6;
 
   const fetchProducts = async () => {
     const { data } = await axios.get("http://localhost:5000/api/products");
@@ -104,6 +105,11 @@ const AdminProductsPage = () => {
     fetchProducts();
   };
 
+  const indexOfLast = currentPage * productsPerPage;
+  const indexOfFirst = indexOfLast - productsPerPage;
+  const currentProducts = products.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(products.length / productsPerPage);
+
   return (
     <div className="admin-products">
       <h2>
@@ -186,7 +192,7 @@ const AdminProductsPage = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((prod) => (
+          {currentProducts.map((prod) => (
             <tr key={prod._id}>
               <td>{prod.name}</td>
               <td>₹{prod.price}</td>
@@ -206,6 +212,18 @@ const AdminProductsPage = () => {
           ))}
         </tbody>
       </table>
+
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentPage(idx + 1)}
+            className={currentPage === idx + 1 ? "active" : ""}
+          >
+            {idx + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

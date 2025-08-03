@@ -1,8 +1,17 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import "./AdminLayout.css";
+import { useAuth } from "../context/AuthContext";
 
 const AdminLayout = () => {
   const location = useLocation();
+  
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+    const handleLogout = () => {
+      logout();
+      navigate("/login");
+    };
+
 
   return (
     <div className="admin-layout">
@@ -37,8 +46,11 @@ const AdminLayout = () => {
       </aside>
 
       <div className="admin-main">
-        <header className="admin-topbar">
+        <header className="admin-topbar d-flex  justify-content-between">
           <h3>Welcome, Admin</h3>
+          <button className="user-logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </header>
         <main className="admin-content">
           <Outlet />

@@ -27,7 +27,7 @@ const LoginPage = () => {
   return (
     <div className="login-wrapper">
       <div className="login-card">
-        <h2 className="login-title">Welcome Back</h2>
+        <h2 className="login-title ">Welcome Back to DinkStore</h2>
         <p className="login-sub">Sign in to continue</p>
         <form onSubmit={handleSubmit} className="login-form">
           <input

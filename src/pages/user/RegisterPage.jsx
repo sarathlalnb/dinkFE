@@ -29,7 +29,7 @@ const RegisterPage = () => {
   return (
     <div className="register-wrapper">
       <div className="register-card">
-        <h2 className="register-title">Create Account</h2>
+        <h2 className="register-title">Create Account at DinkCart</h2>
         <p className="register-sub">Join and start shopping</p>
         <form onSubmit={handleSubmit} className="register-form">
           <input
