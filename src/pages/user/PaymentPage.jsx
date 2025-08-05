@@ -3,6 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./PaymentPage.css";
 import { useAuth } from "../../context/AuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PaymentPage = () => {
   const { state } = useLocation();
@@ -29,8 +31,8 @@ const PaymentPage = () => {
     e.preventDefault();
 
     const itemsPrice = product.price;
-    const taxPrice = +(itemsPrice * 0.18).toFixed(2);
-    const shippingPrice = itemsPrice > 999 ? 0 : 49;
+    const taxPrice = +(itemsPrice * 0.13).toFixed(2);
+    const shippingPrice = itemsPrice > 50 ? 0 : 8;
     const totalPrice = +(itemsPrice + taxPrice + shippingPrice).toFixed(2);
 
     const orderData = {
@@ -61,8 +63,9 @@ const PaymentPage = () => {
         Authorization: `Bearer ${user.token}`,
       },
     });
-      
-    navigate("/user/orders");
+
+    toast.success("Order placed successfully!");
+    // navigate("/user/orders");
   };
 
   if (!product) return <div>No product found</div>;
@@ -77,7 +80,7 @@ const PaymentPage = () => {
             <strong>Product:</strong> {product.name}
           </p>
           <p>
-            <strong>Price:</strong> ₹{product.price}
+            <strong>Price:</strong> ${product.price}
           </p>
         </div>
 
@@ -166,7 +169,7 @@ const PaymentPage = () => {
         </div>
 
         <button type="submit" className="pay-btn">
-          Pay ₹{product.price}
+          Pay ${product.price}
         </button>
       </form>
     </div>

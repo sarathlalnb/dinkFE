@@ -139,13 +139,32 @@ const AdminProductsPage = () => {
           onChange={handleChange}
           required
         />
-        <input
+        {/* <input
           name="category"
           placeholder="Category"
           value={form.category}
           onChange={handleChange}
           required
-        />
+        /> */}
+        <select
+          name="category"
+          value={form.category}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select Category</option>
+          <option value="fashion">Fashion</option>
+          <option value="electronics">Electronics</option>
+          <option value="home">Home</option>
+          <option value="beauty">Beauty</option>
+          <option value="sports">Sports</option>
+          <option value="automotive">Automotive</option>
+          <option value="books">Books</option>
+          <option value="grocery">Grocery</option>
+          <option value="toys">Toys</option>
+          <option value="health">Health</option>
+        </select>
+
         <input
           name="color"
           placeholder="Color"
@@ -195,7 +214,7 @@ const AdminProductsPage = () => {
           {currentProducts.map((prod) => (
             <tr key={prod._id}>
               <td>{prod.name}</td>
-              <td>₹{prod.price}</td>
+              <td>${prod.price}</td>
               <td>{prod.countInStock}</td>
               <td>{prod.category}</td>
               <td>{prod.brand}</td>

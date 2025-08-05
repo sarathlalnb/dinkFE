@@ -16,41 +16,47 @@ import AdminProductsPage from "./pages/admin/AdminProductPage";
 import AdminOrdersPage from "./pages/admin/AdminOrdersPAge";
 import AdminUsersPage from "./pages/admin/AdminUsers";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const { user } = useAuth();
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            !user ? (
-              <LoginPage />
-            ) : (
-              <Navigate to={user.isAdmin ? "/admin" : "/user"} />
-            )
-          }
-        />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/user" element={<UserLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/user/product" element={<ProductPage />} />
-          <Route path="/user/singleProduct/:id" element={<SingleProduct />} />
-          <Route path="/user/payment" element={<PaymentPage />} />
-          <Route path="/user/orders" element={<OrdersPage />} />
-          <Route path="/user/cart" element={<CartPage />} />
-          <Route path="/user/groupPayment" element={<GroupPayment />} />
-        </Route>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<DashboardPage />} />
-          <Route path="/admin/products" element={<AdminProductsPage />} />
-          <Route path="/admin/orders" element={<AdminOrdersPage />} />
-          <Route path="/admin/users" element={<AdminUsersPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              !user ? (
+                <LoginPage />
+              ) : (
+                <Navigate to={user.isAdmin ? "/admin" : "/user"} />
+              )
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/user" element={<UserLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/user/product" element={<ProductPage />} />
+            <Route path="/user/singleProduct/:id" element={<SingleProduct />} />
+            <Route path="/user/payment" element={<PaymentPage />} />
+            <Route path="/user/orders" element={<OrdersPage />} />
+            <Route path="/user/cart" element={<CartPage />} />
+            <Route path="/user/groupPayment" element={<GroupPayment />} />
+          </Route>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<DashboardPage />} />
+            <Route path="/admin/products" element={<AdminProductsPage />} />
+            <Route path="/admin/orders" element={<AdminOrdersPage />} />
+            <Route path="/admin/users" element={<AdminUsersPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </>
   );
 };
 

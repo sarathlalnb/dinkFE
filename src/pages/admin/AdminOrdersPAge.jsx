@@ -15,7 +15,7 @@ const AdminOrdersPage = () => {
           }`,
         },
       });
-      console.log(data)
+      console.log(data);
       setOrders(data);
       setLoading(false);
     } catch (err) {
@@ -87,7 +87,7 @@ const AdminOrdersPage = () => {
                       </div>
                     ))}
                   </td>
-                  <td>₹{order.totalPrice}</td>
+                  <td>${order.totalPrice}</td>
                   <td>
                     <span className={`badge ${order.status}`}>
                       {order.status}

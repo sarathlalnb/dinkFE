@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./PaymentPage.css";
 import { useAuth } from "../../context/AuthContext";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const GroupPayment = () => {
   const { cartItems, clearCart } = useCart();
   const navigate = useNavigate();
-  const {user} = useAuth()
-  console.log(user)
+  const { user } = useAuth();
 
   const [address, setAddress] = useState({
     address: "",
@@ -42,18 +42,15 @@ const GroupPayment = () => {
       totalPrice: grandTotal,
     };
 
-    const res = await axios.post(
-      "http://localhost:5000/api/orders",
-      orderPayload,
-      {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-    );
-    console.log(res)
+    await axios.post("http://localhost:5000/api/orders", orderPayload, {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+
+    toast.success("Order placed successfully!");
     clearCart();
-    navigate("/user/orders");
+    // navigate("/user/orders");
   };
 
   return (
@@ -93,10 +90,10 @@ const GroupPayment = () => {
         />
 
         <div className="summary">
-          <p>Items Total: ₹{total}</p>
-          <p>Tax (18%): ₹{tax}</p>
-          <p>Shipping: ₹{shipping}</p>
-          <h3>Total: ₹{grandTotal}</h3>
+          <p>Items Total: ${total}</p>
+          <p>Tax (18%): ${tax}</p>
+          <p>Shipping: ${shipping}</p>
+          <h3>Total: ${grandTotal}</h3>
         </div>
 
         <button type="submit">Place Order</button>

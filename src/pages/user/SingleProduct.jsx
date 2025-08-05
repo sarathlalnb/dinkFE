@@ -47,7 +47,7 @@ const SingleProduct = () => {
       <div className="product-info">
         <h2 className="animated-title">{product.name}</h2>
         <p className="product-desc animated-desc">{product.description}</p>
-        <h3 className="product-price">₹{product.price}</h3>
+        <h3 className="product-price">${product.price}</h3>
         <div className="product-btns">
           <button onClick={handleAddToCart} className="cart-btn">
             Add to Cart

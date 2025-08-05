@@ -51,7 +51,7 @@ const DashboardPage = () => {
     labels: chartData.map((d) => d.month),
     datasets: [
       {
-        label: "Earnings (₹)",
+        label: "Earnings ($)",
         data: chartData.map((d) => d.total),
         backgroundColor: "rgba(0,255,255,0.5)",
         borderColor: "#00ffff",
@@ -82,7 +82,7 @@ const DashboardPage = () => {
           <i className="fas fa-rupee-sign fa-2x icon-primary" />
           <div>
             <p>Total Earnings</p>
-            <h3>₹{summary.totalEarnings || 0}</h3>
+            <h3>${summary.totalEarnings || 0}</h3>
           </div>
         </div>
 

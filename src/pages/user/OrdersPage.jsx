@@ -104,7 +104,7 @@ const OrdersPage = () => {
                         <strong>{item.name}</strong>
                       </p>
                       <p>Qty: {item.qty}</p>
-                      <p>₹{item.price}</p>
+                      <p>${item.price}</p>
                     </div>
                   </div>
                 ))}
@@ -112,7 +112,7 @@ const OrdersPage = () => {
 
               <div className="order-footer">
                 <p>
-                  <strong>Total:</strong> ₹{order.totalPrice}
+                  <strong>Total:</strong> ${order.totalPrice}
                 </p>
                 <p>
                   <strong>Payment:</strong> {order.paymentMethod}

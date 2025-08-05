@@ -15,9 +15,9 @@ const ShopPage = () => {
 
   const priceRanges = [
     { label: "All Prices", value: "" },
-    { label: "Under ₹999", value: "0-999" },
-    { label: "₹1000 - ₹1999", value: "1000-1999" },
-    { label: "₹2000 & above", value: "2000-999999" },
+    { label: "Under $999", value: "0-999" },
+    { label: "$1000 - $1999", value: "1000-1999" },
+    { label: "$2000 & above", value: "2000-999999" },
   ];
 
   const fetchProducts = async () => {
@@ -98,7 +98,7 @@ const ShopPage = () => {
             >
               <img src={p.image} alt={p.name} />
               <h4>{p.name}</h4>
-              <p>₹{p.price}</p>
+              <p>${p.price}</p>
             </div>
           ))
         ) : (

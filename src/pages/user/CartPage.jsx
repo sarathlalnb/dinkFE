@@ -38,7 +38,7 @@ const CartPage = () => {
                 <img src={item.image} alt={item.name} />
                 <div className="cart-details">
                   <h4>{item.name}</h4>
-                  <p>₹{item.price}</p>
+                  <p>${item.price}</p>
                   <div className="qty-controls">
                     <button
                       onClick={() =>
@@ -65,10 +65,10 @@ const CartPage = () => {
 
           <div className="cart-summary">
             <h3>Summary</h3>
-            <p>Items Total: ₹{total}</p>
-            <p>Tax (18%): ₹{tax}</p>
-            <p>Shipping: ₹{shipping}</p>
-            <h4>Grand Total: ₹{grandTotal}</h4>
+            <p>Items Total: ${total}</p>
+            <p>Tax (18%): ${tax}</p>
+            <p>Shipping: ${shipping}</p>
+            <h4>Grand Total: ${grandTotal}</h4>
             <button className="checkout-btn" onClick={checkoutHandler}>
               Proceed to Payment
             </button>

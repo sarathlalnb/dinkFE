@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./HomePage.css";
 import { useEffect } from "react";
 
-
 const HomePage = () => {
   useEffect(() => {
     const cards = document.querySelectorAll(".feature-card");
@@ -20,7 +19,13 @@ const HomePage = () => {
             Welcome to DinkMart <i className="fa-solid fa-basket-shopping"></i>
           </h1>
           <p className="hero-sub">Latest Trends, Best Prices</p>
-          <Link to={'/user/product'} style={{textDecoration:'none'}} className="cta-button">Explore Now</Link>
+          <Link
+            to={"/user/product"}
+            style={{ textDecoration: "none" }}
+            className="cta-button"
+          >
+            Explore Now
+          </Link>
         </div>
         <div className="hero-bg"></div>
       </section>
@@ -69,7 +74,7 @@ const HomePage = () => {
         <div className="info-card">
           <i className="fa-solid fa-truck-fast"></i>
           <h3>Free Shipping</h3>
-          <p>On orders above ₹999</p>
+          <p>On orders above $50</p>
         </div>
         <div className="info-card">
           <i className="fa-solid fa-shield"></i>
